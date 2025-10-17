@@ -1,0 +1,10 @@
+.menu {
+    display: flex;
+    padding-left: 12px;
+    padding-top: 12px;
+    gap: 12px;
+}
+
+.menu p {
+    color: forestgreen;
+}
