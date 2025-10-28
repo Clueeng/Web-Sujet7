@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% block title %}
-        <title>layout</title>
+        <title>Reparations</title>
     {% endblock %}
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" >
     {% block stylesheets %}
@@ -26,10 +26,24 @@
 {% endwith %}
 
 {% block body %}
+    {# Les reparations #}
     <div class="container">
+        <h2>Filtrer les reparations</h2>
+        <form action="/reparation/filtre">
+
+        </form>
+    </div>
+    <hr>
     <br>
-        <h2 style="color:blue">Reparations</h2>
-        <p>Sujet 7 - Leo Krakovinsky</p>
+
+    {# Filtre en lui meme #}
+    <div class="container">
+
+    </div>
+
+    {# objets filtres #}
+    <div class="container">
+
     </div>
 {% endblock %}
 {% block javascripts %}

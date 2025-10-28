@@ -1,18 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, request
 
 # Sujet 7
 # Leo Krakovinsky
 # https://cours-info.iut-bm.univ-fcomte.fr/upload/perso/77/rs_S1_DIW/diw/diw_tp3_1_projet_sujets_v25.html#sujet-7
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.secret_key = 'une cle(token) : grain de sel(any random string)'
 
 
 # id, libelleType, logo
 typesReparations=[
     {'id':1,'libelleType':'entretien','logo':'logo_entretien.png'},
     {'id':2,'libelleType':'carrosserie','logo':'logo_carrosserie.png'},
-    {'id':3,'libelleType':'mecanique','logo':'mecanique.png'},
-    {'id':4,'libelleType':'autre','logo':'autre.png'}
+    {'id':3,'libelleType':'mecanique','logo':'logo_mecanique.png'},
+    {'id':4,'libelleType':'autre','logo':'logo_autre.png'}
 ]
 
 # id, libelleReparation, immatVoiture, prixReparation, dateReparation, typeReparation_id, photo
@@ -41,6 +43,109 @@ reparations=[
 def home_page():
     return render_template('layout.html')
 
+@app.route('/type-reparation/show', methods=['GET'])
+def show_type_reparation():
+    return render_template('type_reparation/show_type_reparation.html',types=typesReparations)
+
+
+# Add
+@app.route('/type-reparation/add', methods=['GET'])
+def add_type_reparation():
+    return render_template('type_reparation/add_type_reparation.html',types=typesReparations)
+
+@app.route('/type-reparation/add', methods=['POST'])
+def valid_add_type_reparation():
+    # id_type = request.form['id_type']
+    nom = request.form['nom']
+    logo = request.form['logo']
+    flash(f'Type reparation ajoute: {nom}, {logo}', 'alert-success')
+    print(request.form)
+    return render_template('type_reparation/show_type_reparation.html',types=typesReparations)
+
+
+# Delete
+@app.route('/type-reparation/delete', methods=['GET'])
+def delete_type_reparation():
+    id = request.args.get('id')
+    flash(f'Type reparation id={id} supprime', 'alert-warning')
+    return render_template('type_reparation/show_type_reparation.html',types=typesReparations)
+# Edit
+@app.route('/type-reparation/edit', methods=['GET'])
+def edit_type_reparation():
+    id = request.args.get('id', '')
+    id=int(id)
+    type_reparation = typesReparations[id-1]
+    return render_template('type_reparation/edit_type_reparation.html',reparation=type_reparation)
+
+@app.route('/type-reparation/edit', methods=['POST'])
+def valid_edit_type_reparation():
+    id_type = request.form['id_type']
+    nom = request.form['nom']
+    logo = request.form['logo']
+    print(request.form)
+    flash(f'Type reparation edite {id_type} {nom} {logo}', 'alert-success')
+    return render_template('type_reparation/show_type_reparation.html',types=typesReparations)
+
+
+
+
+
+
+############# REPARATIONS ##########
+
+@app.route('/reparation/show', methods=['GET'])
+def show_reparation():
+    return render_template('reparation/show_reparation.html', reparations=reparations)
+
+
+# Add
+@app.route('/reparation/add', methods=['GET'])
+def add_reparation():
+    return render_template('reparation/add_reparation.html', types=typesReparations)
+
+@app.route('/reparation/add', methods=['POST'])
+def valid_add_reparation():
+    # Args: id_reparation nom immatriculation prix date type image
+    # id_reparation = request.form['id_reparation']
+    nom_reparation = request.form['nom']
+    immatriculation = request.form['immatriculation']
+    prix = request.form['prix']
+    date = request.form['date']
+    type_reparation = request.form['type']
+    logo_reparation = request.form['image']
+
+    flash(f'Ajoute {nom_reparation} {immatriculation} {prix} {date} {type_reparation} {logo_reparation}', 'alert-success')
+    return render_template('reparation/show_reparation.html', reparations=reparations)
+
+
+# Delete
+@app.route('/reparation/delete', methods=['GET'])
+def delete_reparation():
+    id = request.args.get('id')
+    flash(f'reparation supprime {id}', 'alert-warning')
+    return render_template('reparation/show_reparation.html', reparations=reparations)
+
+# Edit
+@app.route('/reparation/edit', methods=['GET'])
+def edit_reparation():
+    repar_id = request.args.get('id')
+    print(repar_id)
+    rep = reparations[int(repar_id)-1]
+    return render_template('reparation/edit_reparation.html', types=typesReparations, reparation=rep)
+
+@app.route('/reparation/edit', methods=['POST'])
+def valid_edit_reparation():
+    libelle = request.form['nom']
+    immatVoiture = request.form['immatriculation']
+    prixReparation = request.form['prix']
+    dateReparation = request.form['date']
+    typeReparation = request.form['type']
+    flash(f'reparation edite: {libelle}, {immatVoiture}, {prixReparation}, {dateReparation}, {typeReparation}', 'alert-success')
+    return render_template('reparation/show_reparation.html', reparations=reparations)
+
+@app.route('/reparation/filtre', methods=['GET'])
+def filtre_reparation():
+    return render_template('reparation/front_reparation_filtre_show.html', reparations=reparations, types=typesReparations)
 
 if __name__ == '__main__':
     app.run()

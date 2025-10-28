@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>modifier un type de reparation</title>
+{% endblock %}
+
+{% block body %}
+  <div class="form-container">
+      <form method="post" action="/type-reparation/edit" >
+        <fieldset>
+
+            <legend> Modifier un type de reparation</legend>
+            <label for="id_type">ID</label><br>
+            <input class="form-control fond-required" required="" type="text" name="id_type" size="18" placeholder="{{ reparation.id }}" value="{{ reparation.id }}" id="id_type"><br>
+            <label for="nom">Nom</label><br>
+            <input class="form-control fond-required" required="" type="text" name="nom" size="18" placeholder="{{ reparation.libelleType }}" value="{{ reparation.libelleType }}" id="nom"><br>
+            <label for="logo">Logo</label><br>
+            <input class="form-control fond-required" required="" type="text" name="logo" size="18" placeholder="{{ reparation.logo }}" value="{{ reparation.logo }}" id="logo"><br>
+
+
+            <input type="submit" value="Modifier" name="Modifier" >
+        </fieldset>
+      </form>
+  </div>
+
+{% endblock %}

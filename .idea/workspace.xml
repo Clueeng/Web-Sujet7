@@ -4,36 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe90ed61-b4cb-4ef0-b16d-9c3ed55b5f86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Sujet7Millet.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cahier_des_charges.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/launcher.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/intervention_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/logo_autre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/logo_carrosserie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/logo_entretien.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/logo_mecanique.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/logo_sujet_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+    <list default="true" id="fe90ed61-b4cb-4ef0-b16d-9c3ed55b5f86" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/templates/reparation/add_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reparation/edit_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reparation/front_reparation_filtre_show.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reparation/show_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/type_reparation/add_type_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/type_reparation/edit_type_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/type_reparation/show_type_reparation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cahier_des_charges.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cahier_des_charges.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +46,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Clueeng&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Clueeng/Web-Sujet7.git&quot;,
+    &quot;accountId&quot;: &quot;8472219c-56f6-432d-acaa-14486034fadc&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -71,6 +68,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Flask server.Sujet7Millet.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -78,7 +76,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;/home/flaily/.local/share/JetBrains/PyCharm2025.2/Shell Script/shellcheck&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/flaily/Documents/coding/IUT/Sujet7Millet/static&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/flaily/Documents/coding/IUT/Sujet7Millet/templates&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,9 +88,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/reparation" />
       <recent name="$PROJECT_DIR$/static/assets" />
     </key>
   </component>
@@ -130,10 +130,33 @@
       <option name="presentableId" value="Default" />
       <updated>1760697063447</updated>
       <workItem from="1760697064495" duration="2615000" />
+      <workItem from="1760724885292" duration="981000" />
+      <workItem from="1760955532554" duration="3825000" />
+      <workItem from="1760960064091" duration="1433000" />
+      <workItem from="1761215416626" duration="4240000" />
+      <workItem from="1761292539171" duration="1607000" />
+      <workItem from="1761302238823" duration="1806000" />
+      <workItem from="1761687439615" duration="965000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1760725218813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760725218813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sujet7Millet$Sujet7Millet.coverage" NAME="Sujet7Millet Coverage Results" MODIFIED="1761218041434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

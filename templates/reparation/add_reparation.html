@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>modifier une reparation</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+      <form method="post" action="/reparation/add" >
+        <fieldset>
+
+            <legend> Ajouter une reparation</legend>
+        {# Args: id_reparation nom immatriculation prix date type image #}
+{#            <label for="id_reparation">ID</label><br>#}
+{#            <input class="form-control fond-required" required=""#}
+{#                   type="text" name="id_reparation" size="18"#}
+{#                   placeholder=""#}
+{#                   value="" id="id_reparation"><br>#}
+
+            <label for="nom">Nom de la reparation</label><br>
+            <input class="form-control fond-required" required=""
+                   type="text" name="nom" size="18"
+                   placeholder="nom"
+                   value="" id="nom"><br>
+
+            <label for="immatriculation">Immatriculation</label><br>
+            <input class="form-control fond-required" required="" type="text" name="immatriculation" size="18" placeholder="AA-123-BB" value="AA-123-BB" id="immatriculation"><br>
+
+            <label for="prix">Prix</label><br>
+            <input class="form-control fond-required" required="" type="number" name="prix" size="18" placeholder="1.99" value="1.99" id="prix"><br>
+
+            <label for="date">Date</label><br>
+            <input class="form-control" required="" type="date" name="date" size="18" placeholder="01/01/1970" value="01/01/1970" id="date"><br>
+            <br>
+
+            <label for="type">type reparation</label><br>
+            <select class="form-control fond-required" style="background-color: rgba(217,246,30,0.38)" required="" id="type" name="type">
+                {% for type in types %}
+                    <option value="{{ type.libelleType }}">{{ type.libelleType }}</option>
+                {% endfor %}
+            </select> <br>
+
+            <label for="image">Image</label><br>
+            <input class="form-control fond-required" required="" type="text" name="image" size="18" placeholder="image" value="image" id="image"><br>
+
+            <input class="btn btn-primary" type="submit" value="Creer" name="Valider" >
+        </fieldset>
+      </form>
+  </div>
+
+{% endblock %}

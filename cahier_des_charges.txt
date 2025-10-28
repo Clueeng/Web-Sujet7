@@ -1,3 +1,13 @@
 Pages:
-- Accueil
-- Reparations
+- Filtre
+
+Consignes:
+les noms des champs input(name) doivent porter le nom des clés (attribut) des dictionnaires que vous utilisez
+
+    ATTENTION : les clés dans tous les tableaux Python de dictionnaires sont en CamelCase, il faut respecter cette notation.
+    La seule clé en snake_case est la clé étrangère
+
+Page filtre:
+Afficher le filtre lui meme d'apres les type_reparations
+Afficher en cards toutes les reparations
+Utiliser bootstrap

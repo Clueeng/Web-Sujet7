@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>modifier une reparation</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+      <form method="post" action="/type-reparation/add" >
+        <fieldset>
+
+            <legend> Ajouter un type de reparation</legend>
+
+{#            <label for="id_type">ID</label><br>#}
+{#            <input class="form-control fond-required" required=""#}
+{#                   type="text" name="id_type" size="18"#}
+{#                   placeholder=""#}
+{#                   value="" id="id_type"><br>#}
+
+
+
+            <label for="nom">Nom</label><br>
+            <input class="form-control fond-required" required=""
+                   type="text" name="nom" size="18"
+                   placeholder="nom"
+                   value="" id="nom"><br>
+
+            <label for="logo">Logo</label><br>
+            <input class="form-control fond-required" required="" type="text" name="logo" size="18" placeholder="" value="" id="logo"><br>
+
+            <input class="btn btn-primary" type="submit" value="Creer" name="Valider" >
+
+{#            <input type="submit" class="btn-success" value="Ajouter Type" name="Ajouter Type" >#}
+        </fieldset>
+      </form>
+  </div>
+
+{% endblock %}

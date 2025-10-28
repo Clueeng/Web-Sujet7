@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>modifier une reparation</title>
+{% endblock %}
+
+{% block body %}
+  <div class="form-container">
+      <form method="post" action="/reparation/edit" >
+        <fieldset>
+
+            <legend> Modifier une reparation</legend>
+            <label for="nom">Nom</label><br>
+            <input class="form-control fond-required" required="" type="text" name="nom" size="18" placeholder="{{ reparation.libelleReparation }}" value="{{ reparation.libelleReparation }}" id="nom"><br>
+
+            <!-- Remplacer avec menu deroulant (copie de add_reparation) -->
+{#            <label for="type_id">id type reparation</label><br>#}
+{#            <input class="form-control fond-required" required="" type="number" name="type_id" size="18" placeholder="{{ reparation.type_reparation_id }}" value="{{ reparation.type_reparation_id }}" id="type_id"><br>#}
+
+            <label for="type">type reparation</label><br>
+            <select class="form-control fond-required" required="" id="type" name="type">
+                {% for type in types %}
+                    <option value="{{ type.libelleType }}">{{ type.libelleType }}</option>
+                {% endfor %}
+            </select> <br>
+
+            <label for="prix">Prix</label><br>
+            <input class="form-control fond-required" required="" type="number" name="prix" size="18" placeholder="{{ reparation.prixReparation }}" value="{{ reparation.prixReparation }}" id="prix"><br>
+
+{#            <label for="stock">Stock</label><br>#}
+{#            <input class="form-control fond-required" required="" type="number" name="stock" placeholder="{{ reparation.stock }}" size="18" value="{{ reparation.stock }}" id="stock"><br>#}
+
+            <label for="date">Date</label><br>
+            <input class="form-control" required="" type="date" name="date" size="18" placeholder="{{ reparation.dateReparation }}" value="{{ reparation.dateReparation }}" id="date"><br>
+            <br>
+
+            <label for="immatriculation">Immatriculation</label><br>
+            <input class="form-control fond-required" required="" type="text" name="immatriculation" size="18" placeholder="{{ reparation.immatVoiture }}" value="{{ reparation.immatVoiture }}" id="immatriculation"><br>
+
+            <label for="image">Image</label><br>
+            <input class="form-control fond-required" required="" type="text" name="image" size="18" placeholder="{{ reparation.photo }}" value="{{ reparation.photo }}" id="image"><br>
+
+
+            <input type="submit" value="Modifier" name="Modifier" >
+        </fieldset>
+      </form>
+  </div>
+
+{% endblock %}

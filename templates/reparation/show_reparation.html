@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block title %}
+        <title>Reparations</title>
+    {% endblock %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" >
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}" >
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" >
+    {% endblock %}
+</head>
+<body>
+{% include('_nav.html') %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for categorie, message in messages %}
+    <div role="alert" class="alert {{ categorie }}">
+           Information : <strong>{{ message }}</strong>
+    </div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+{% block body %}
+    {# Les reparations #}
+    <div class="container">
+        <h2>Reparations</h2>
+        <a class="btn btn-success" href="add">
+            Ajouter
+        </a>
+    </div>
+    <hr>
+    <br>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th> <th>Nom</th> <th>Immatriculation</th>
+                    <th>Prix</th> <th>Date</th> <th>Type</th>
+                    <th>photo</th> <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+        {# {'id':1,'libelleReparation':'Vidange' , 'immatVoiture':'RP-456-ZF' ,
+         'prixReparation':'50' , 'dateReparation':'2014-10-15' , 'typeReparation_id':1,
+          'photo':'intervention_1.png'}, #}
+            {% if reparations | length > 1 %}
+                {% for reparation in reparations %}
+                    <tr>
+                        <td>{{ reparation.id }}</td>
+                    <td>{{ reparation.libelleReparation }}</td>
+                    <td>{{ reparation.immatVoiture }}</td>
+                    <td>{{ reparation.prixReparation }}</td>
+                    <td>{{ reparation.dateReparation }}</td>
+                    <td style="color: red;">{{ reparation.typeReparation_id }}</td>
+                    <td><img src="../static/assets/{{ reparation.photo }}" alt="{{ reparation.photo }}"
+                    width="48px" height="48px"></td>
+
+                    <td>
+                        <a href="/reparation/edit?id={{ reparation.id }}" class="btn btn-outline-warning">Editer</a>
+                        <a href="/reparation/delete?id={{ reparation.id }}" class="btn btn-outline-danger">Supprimer</a>
+                    </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <h3>Aucun reparation</h3>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}"></script>
+{% endblock %}
+</body>
+</html>
