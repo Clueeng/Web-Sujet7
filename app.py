@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, request
+from flask import Flask, render_template, flash, request, redirect
 
 # Sujet 7
 # Leo Krakovinsky
@@ -147,5 +147,41 @@ def valid_edit_reparation():
 def filtre_reparation():
     return render_template('reparation/front_reparation_filtre_show.html', reparations=reparations, types=typesReparations)
 
+@app.route('/reparation/filtre', methods=['POST'])
+def valid_filtre_reparation():
+    filter_word = request.form.get('filter_word', None)
+    filter_value_min = request.form.get('filter_value_min', None)
+    filter_value_max = request.form.get('filter_value_max', None)
+
+    # getlist au lieu de get ? get donnait un string pour une raison qui m'echappe
+    # https://stackoverflow.com/questions/31859903/get-the-value-of-a-checkbox-in-flask
+    filter_items = request.form.getlist('filter_items', None)
+    if filter_word and filter_word != "":
+        message = u'filtre sur le mot : '  + filter_word
+        flash(message, 'alert-success')
+
+    if filter_value_min or filter_value_max:
+        min=str(filter_value_min).replace(' ', '').replace(',', ',')
+        max=str(filter_value_max).replace(' ', '').replace(',', ',')
+        if min.replace('.', '', 1).isdigit() \
+            and max.replace('.', '', 1).isdigit():
+            if float(min) < float(max):
+                message = u'filtre sur la colone avec un numeriquqe entre ' + str(min) + ', ' + str(max) + ', '
+                flash(message, 'alert-success')
+            else:
+                message = u'min > max'
+                flash(message, 'alert-warning')
+        else:
+            message = u'min ' + min + ' et max ' + max + ' doivent etre des numeriques positifs'
+            flash(message, 'alert-warning')
+
+    if filter_items and filter_items != []:
+        message = u'case a cocher selectionnee: '
+        for case in filter_items:
+            message += ' id: ' + case + ' '
+
+        flash(message, 'alert-success')
+
+    return redirect('/reparation/filtre')
 if __name__ == '__main__':
     app.run()

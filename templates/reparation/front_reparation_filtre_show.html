@@ -28,21 +28,76 @@
 {% block body %}
     {# Les reparations #}
     <div class="container">
-        <h2>Filtrer les reparations</h2>
-        <form action="/reparation/filtre">
+        <h3>Filtrer les reparations</h3>
+        <form action="/reparation/filtre" method="post">
+            <fieldset class="d-flex">
 
+                <div class="w-25 px-4">
+                    <label for="filter_word">Reparations dont le libelle contient:</label>
+                    <input type="text" id="filter_word" name="filter_word" placeholder="" class="form-control">
+
+                    {# Filtre des types, avec des cases a cocher #}
+                {# TODO: Finir ca dans le post, ca get que les lettre du premier selectionne? jcomprends pas #}
+                    <h5>Type reparation</h5>
+                    <div class="form-check">
+                        {% for type in types %}
+                            <input type="checkbox" name="filter_items" id="{{type.libelleType}}" value="{{type.libelleType}}">
+                            <label for="{{type.libelleType}}">{{type.libelleType}}</label>
+                            <br>
+                        {% endfor %}
+                    </div>
+
+                    <br>
+                    <input type="submit" class="btn btn-success" value="Filtrer">
+                </div>
+
+
+                <div class="w-25 px-4">
+                    <h5>Prix compris entre:</h5>
+                    <div class="form-group row">
+                        <label for="filter_value_min" class="col-form-label">Minimum :</label>
+                        <input type="number" id="filter_value_min" name="filter_value_min" placeholder="" class="form-control">
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="filter_value_max" class="col-form-label">Max :</label>
+                        <input type="number" id="filter_value_max" name="filter_value_max" placeholder="" class="form-control">
+                    </div>
+                </div>
+
+            </fieldset>
         </form>
     </div>
     <hr>
     <br>
 
-    {# Filtre en lui meme #}
-    <div class="container">
-
-    </div>
-
     {# objets filtres #}
-    <div class="container">
+    <div class="row d-flex justify-content-around flex-wrap gap-5">
+     {% for repa in reparations %}
+        <div class="card col-4 m-4" style="max-width: 18rem;">
+            <div class="card-body border-dark rounded">
+                <h2 class="card-title">
+                    {{ repa.libelleReparation }}
+                    <br>
+                    <span class="rouge text-warning">{{ repa.prixReparation }}e</span>
+                    <br>
+                </h2>
+                <div class="card-body">
+                    <img class="card-img-top rounded mx-auto d-block"
+                    style="height: 80px; width: 80px;" src="../static/assets/{{ repa.photo }}"
+                    alt="{{ repa.photo }}">
+                    <hr>
+                </div>
+                <div class="card-body">
+                    <div class="input-group input-group-sm" style="width: 4rem !important;">
+                        date: {{ repa.dateReparation }}
+                    </div>
+                </div>
+             </div>
+        </div>
+        {% endfor %}
+
+{# # id, libelleReparation, immatVoiture, prixReparation, dateReparation, typeReparation_id, photo#}
 
     </div>
 {% endblock %}

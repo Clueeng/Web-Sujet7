@@ -9,6 +9,15 @@
     color: forestgreen;
 }
 
- input {
-    background-color: green;
+input {
+    color: #0a53be;
+}
+
+#nom {
+    transition: background-color 0.1s;
+    background-color: #ffffff;
+}
+
+#nom:placeholder-shown {
+    background-color: #aea9a9;
 }
